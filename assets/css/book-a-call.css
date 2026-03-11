@@ -1,0 +1,188 @@
+/* ═══════════════════════════════════════════════════════
+   BEAR MY BRAND — book-a-call.css
+   Palette: #000 · #060a10 · #0a0f18 · #1b70bb · #fff
+═══════════════════════════════════════════════════════ */
+
+/* ── Active navlink ─────────────────────────────────────── */
+.navlink.active { color: #1b70bb; }
+
+/* ── Hero ──────────────────────────────────────────────── */
+.bac-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #000;
+  overflow: hidden;
+  padding: 140px 0 120px;
+}
+
+.bac-bg,
+.bac-noise {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bac-bg    { z-index: 0; }
+.bac-noise { z-index: 1; opacity: .035; pointer-events: none; }
+
+.bac-hero-orb {
+  position: absolute;
+  top: 5%; right: -8%;
+  width: clamp(400px, 55vw, 700px);
+  height: clamp(400px, 55vw, 700px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,112,187,.10) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bac-hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  width: 100%;
+  display: block;
+}
+
+.bac-hero-left  { min-width: 0; }
+
+.bac-h1 {
+  line-height: 1;
+}
+
+.bac-h1-sm {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(40px, 7.5vw, 112px);
+  text-transform: uppercase;
+  letter-spacing: -.01em;
+  color: rgba(255,255,255,.75);
+  display: block;
+  white-space: nowrap;
+}
+
+.bac-h1-lg {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: clamp(56px, 10.5vw, 158px);
+  text-transform: uppercase;
+  letter-spacing: -.03em;
+  line-height: .9;
+  color: #fff;
+  display: block;
+  white-space: nowrap;
+}
+
+.bac-h1-blue { color: #1b70bb; }
+
+.h1w {
+  display: block;
+  transform: translateY(105%);
+}
+
+.bac-hero-sub {
+  font-family: 'Barlow', sans-serif;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 300;
+  line-height: 1.7;
+  color: #8a9bb5;
+  max-width: none;
+  white-space: nowrap;
+  margin-top: 28px;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+
+/* Stats strip alignment */
+#bacHero .hero-stats {
+  padding: 0 var(--gutter);
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* ── Booking section ────────────────────────────────────── */
+.bac-booking {
+  position: relative;
+  padding: 80px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+  overflow: hidden;
+  /* Deep dark base with blue mesh gradient */
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%,  rgba(27,112,187,.13) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 70% at 90% 80%,  rgba(27,112,187,.09) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 50% 50%,  rgba(27,112,187,.05) 0%, transparent 70%),
+    #060a10;
+}
+
+/* Subtle blue grid lines */
+.bac-booking::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(27,112,187,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27,112,187,.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Top-left corner glow streak */
+.bac-booking::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(27,112,187,.5) 30%, rgba(27,112,187,.8) 50%, rgba(27,112,187,.5) 70%, transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.bac-booking-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.bac-cal-wrap {
+  background:
+    linear-gradient(160deg, rgba(27,112,187,.07) 0%, transparent 40%),
+    linear-gradient(#0b1525, #09101a);
+  border: 1px solid rgba(27,112,187,.28);
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow:
+    0 0 120px rgba(27,112,187,.12),
+    0 0 40px  rgba(27,112,187,.06),
+    inset 0 1px 0 rgba(27,112,187,.18);
+  padding: 64px 0 44px;
+}
+
+/* Cal.com iframe container — clips Cal.com attribution via overflow */
+#my-cal-inline {
+  width: 100%;
+  overflow: hidden;
+}
+
+#my-cal-inline iframe {
+  width: 100% !important;
+  border: none !important;
+  border-radius: 0 !important;
+  display: block;
+  margin-bottom: -56px; /* hides Cal.com branding at iframe bottom */
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .bac-hero        { padding: 80px 0; min-height: 60vh; }
+  .bac-booking     { padding: 60px 0 80px; }
+  #my-cal-inline   { min-height: 580px; }
+}
